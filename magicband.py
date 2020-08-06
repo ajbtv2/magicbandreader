@@ -98,7 +98,7 @@ class MagicBand(cli.CommandLineInterface):
 
     # play startup sequence
     def playStartupSequence(self):
-        for x in range(0,3):
+        for x in range(0,4):
             self.do_lights_on(COLORS["white"])
             time.sleep(.5)
             self.do_lights_off()
