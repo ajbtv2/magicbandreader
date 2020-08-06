@@ -3,6 +3,7 @@ from sh import git
 from subprocess import check_call
 import time
 import os, sys
+import magicband
 
 aggregated = ""
 
@@ -42,10 +43,11 @@ if __name__ == "__main__":
     
         if CheckForUpdate(gitDir):
             print("Resetting code...")
-            check_call(["pkill", "-f", "magicband.py"])
+            #check_call(["pkill", "-f", "magicband.py"])
             resetCheck = git("--git-dir=" + gitDir + ".git/", "--work-tree=" + gitDir, "reset", "--hard", "origin/master")
             print(str(resetCheck)) 
-            os.system('python3 magicband.py')
+            magicband.theaterChase()
+            #os.system('python3 magicband.py')
         
         print("Check complete. Waiting for " + str(checkTimeSec) + " seconds until next check...", True)
         if checkTimeSec == 0:
