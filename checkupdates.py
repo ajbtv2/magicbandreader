@@ -3,7 +3,6 @@ from sh import git
 from subprocess import check_call
 import time
 import os, sys
-import magicband
 
 aggregated = ""
 
@@ -46,7 +45,6 @@ if __name__ == "__main__":
             #check_call(["pkill", "-f", "magicband.py"])
             resetCheck = git("--git-dir=" + gitDir + ".git/", "--work-tree=" + gitDir, "reset", "--hard", "origin/master")
             print(str(resetCheck)) 
-            magicband.theaterChase()
             #os.system('python3 magicband.py')
         
         print("Check complete. Waiting for " + str(checkTimeSec) + " seconds until next check...", True)
