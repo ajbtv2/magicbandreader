@@ -15,7 +15,6 @@ def CheckForUpdate(workingDir):
     time.sleep(2)
     print("Checking status for " + workingDir + "...")
     statusCheck = git("--git-dir=" + workingDir + ".git/", "--work-tree=" + workingDir, "status")
-    print(statusCheck)
 
     if "Your branch is up to date" in statusCheck:
         print("Status check passes.")
@@ -35,7 +34,7 @@ def ProcessFetch(char, stdin):
         stdin.put("yourpassword\n")
 
 if __name__ == "__main__":
-    checkTimeSec = 60
+    checkTimeSec = 0
     gitDir = "/home/pi/magicbandreader/"
     while True:
         print("*********** Checking for code update **************")                                                     
@@ -46,4 +45,7 @@ if __name__ == "__main__":
             print(str(resetCheck)) 
         
         print("Check complete. Waiting for " + str(checkTimeSec) + " seconds until next check...", True)
-        time.sleep(checkTimeSec)
+        if checkTimeSec == 0:
+            sys.exit()
+        else:
+            time.sleep(checkTimeSec)
