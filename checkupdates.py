@@ -35,7 +35,7 @@ def ProcessFetch(char, stdin):
 
 if __name__ == "__main__":
     checkTimeSec = 60
-    gitDir = "/magicbandreader"
+    gitDir = "/home/pi/magicbandreader/"
     while True:
         print("*********** Checking for code update **************")                                                     
     
