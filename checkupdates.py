@@ -44,5 +44,5 @@ if __name__ == "__main__":
             resetCheck = git("--git-dir=" + gitDir + ".git/", "--work-tree=" + gitDir, "reset", "--hard", "origin/master")
             print(str(resetCheck)) 
                                                                                                                                                                 
-        print("Check complete. Waiting for " + str(checkTimeSec) + "seconds until next check...", True)
+        print("Check complete. Waiting for " + str(checkTimeSec) + "seconds until next check...", False)
         time.sleep(checkTimeSec)
